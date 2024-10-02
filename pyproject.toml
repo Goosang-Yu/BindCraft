@@ -1,0 +1,66 @@
+
+
+[build-system]
+requires = ["hatchling >= 1.13.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "BindCraft"
+description = "BindCraft: User friendly and accurate binder design pipeline"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+    { name = "Martin Pacesa", email = "bc_maintainer@gmail.com" },
+]
+keywords = [
+  "deep-learning",
+  "AlphaFold",
+  "Protein",
+  "Binder",
+  "ai",
+  "python",
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Unix",
+    "Operating System :: POSIX",
+    "Operating System :: MacOS :: MacOS X",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development",
+    "Programming Language :: Python",
+]
+dependencies = [
+    'pyrosetta-installer',
+    'biopython == 1.79',
+    'scipy < 1.13.0',
+    'pdbfixer',
+    'seaborn',
+    'tqdm',
+    'jupyter',
+    'ffmpeg',
+    ]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/martinpacesa/BindCraft"
+Repository = "https://github.com/martinpacesa/BindCraft"
+Source = "https://github.com/martinpacesa/BindCraft"
+Tracker = "https://github.com/martinpacesa/BindCraft/issues"
+
+[tool.hatch.version]
+path = "bindcraft/__init__.py"
+
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.github",
+  "/docs",
+  "/tests",
+  "/database/metadata",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["bindcraft"]
